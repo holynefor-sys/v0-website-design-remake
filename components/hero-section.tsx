@@ -15,7 +15,7 @@ export const HeroSection = ({ onOpenForm }: { onOpenForm: () => void }) => {
         src="/images/головна.jpg"
         alt="Схід сонця над долиною"
         fill
-        objectFit="cover"
+        style={{ objectFit: 'cover' }}
         className="z-0 fixed inset-0 w-full h-full"
         priority
       />
@@ -36,9 +36,9 @@ export const HeroSection = ({ onOpenForm }: { onOpenForm: () => void }) => {
             repeatType: "reverse",
           }}
         >
-          Почни жити
+          Навчально-духовний центр &quot;Перемога&quot; -
           <br />
-          <span className="text-blue-400">повноцінним життям</span>
+          <span className="text-blue-400">Ваш шлях до свободи</span>
         </motion.h1>
         <p className="mt-4 max-w-2xl mx-auto text-lg md:text-xl text-gray-200">
           Бог дає <span className="text-blue-400 font-semibold">справжню свободу</span>, мир, натхнення і сенс життя!
