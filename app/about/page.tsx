@@ -18,7 +18,7 @@ const AboutHeroSection = () => (
   <section className="relative h-[60vh] flex items-center justify-center text-center text-white">
     <Image
       src="/images/2222.JPG"
-      alt="Команда досвідчених наставників центру реабілітації Перемога"
+      alt="Команда центру 'Перемога' на зустрічі"
       fill
       className="object-cover z-0 fixed inset-0 w-full h-full"
       priority
@@ -56,7 +56,7 @@ const HistorySection = ({ onOpenForm }: { onOpenForm: () => void }) => (
       <div>
         <Image
           src="/images/1111.jpg"
-          alt="Команда центру Перемога святкує річницю заснування"
+          alt="Команда святкує річницю центру"
           width={600}
           height={500}
           className="rounded-lg shadow-xl w-full h-auto object-cover"
@@ -123,14 +123,14 @@ const TeamSection = () => (
       <div className="mt-12 grid sm:grid-cols-1 lg:grid-cols-2 gap-8">
         <Image
           src="/images/2222.JPG"
-          alt="Команда досвідчених наставників центру реабілітації Перемога"
+          alt="Команда центру Перемога"
           width={600}
           height={450}
           className="rounded-lg shadow-xl w-full h-96 object-cover"
         />
         <Image
           src="/images/3333.JPG"
-          alt="Велика спільнота учасників та випускників центру Перемога"
+          alt="Велика спільнота центру Перемога"
           width={600}
           height={450}
           className="rounded-lg shadow-xl w-full h-96 object-cover"

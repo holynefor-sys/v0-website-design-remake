@@ -28,7 +28,7 @@ const ContactsHeroSection = () => (
     />
     <div className="absolute inset-0 bg-black/50 z-10" />
     <div className="z-20 p-4">
-      <h1 className="text-4xl md:text-6xl font-extrabold">Контакти центру реабілітації &quot;Перемога&quot;</h1>
+      <h1 className="text-4xl md:text-6xl font-extrabold">Зв&apos;яжіться з нами</h1>
       <p className="mt-4 max-w-2xl mx-auto text-lg md:text-xl text-gray-200">
         Ми завжди раді відповісти на ваші запитання
         <br />
@@ -90,7 +90,7 @@ const ContactInfoAndFormSection = () => {
         <div className="container mx-auto px-4 grid lg:grid-cols-2 gap-16 items-start">
           {/* Contact Info */}
           <div>
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Телефони для екстреної допомоги</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Контактна Інформація</h2>
             <p className="text-gray-600 mb-8">
               Використовуйте ці номери, щоб зв&apos;язатися з нами. Ми завжди готові допомогти.
             </p>
@@ -189,7 +189,7 @@ const ContactInfoAndFormSection = () => {
       <AnimatedSection className="py-16 bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Наші ресурси в соціальних мережах</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Наші ресурси</h2>
             <p className="text-gray-600 max-w-2xl mx-auto">
               Слідкуйте за нашими новинами та діяльністю в соціальних мережах
             </p>

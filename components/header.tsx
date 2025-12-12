@@ -63,20 +63,19 @@ export const Header = ({
   })
 
   const navLinks = [
-    { href: "/", text: "Головна", title: "Перейти на головну сторінку центру Перемога" },
+    { href: "/", text: "Головна" },
     {
       text: "Напрямки",
       href: "/directions",
-      title: "Програми та напрямки навчання",
       subLinks: [
-        { href: "/directions/freedom-from-addiction", title: "Дізнатися більше про програму звільнення від залежностей" },
-        { href: "/directions/spiritual-growth", title: "Програми духовного зростання та розвитку" },
-        { href: "/directions/knowing-god", title: "Курси для пізнання Бога та основ віри" },
+        { href: "/directions/freedom-from-addiction", title: "Звільнення від залежностей" },
+        { href: "/directions/spiritual-growth", title: "Духовне зростання" },
+        { href: "/directions/knowing-god", title: "Пізнання Бога" },
       ],
     },
-    { href: "/about", text: "Про нас", title: "Дізнатися більше про історію та місію центру Перемога" },
-    { href: "/conditions", text: "Умови навчання", title: "Умови навчання та перебування в центрі" },
-    { href: "/contacts", text: "Контакти", title: "Контактна інформація та зв'язок з центром" },
+    { href: "/about", text: "Про нас" },
+    { href: "/conditions", text: "Умови навчання" },
+    { href: "/contacts", text: "Контакти" },
   ]
 
   const closeMobileNav = () => {
@@ -135,7 +134,6 @@ export const Header = ({
                           navigationMenuTriggerStyle(),
                           pathname === link.href && "bg-accent text-accent-foreground",
                         )}
-                        title={link.title}
                       >
                         {link.text}
                       </NavigationMenuLink>
@@ -179,7 +177,6 @@ export const Header = ({
                     href={link.href}
                     className="block text-lg py-3 px-4 rounded-md hover:bg-blue-50 transition-colors text-gray-800 font-medium"
                     onClick={closeMobileNav}
-                    title={link.title}
                   >
                     {link.text}
                   </Link>
@@ -191,7 +188,6 @@ export const Header = ({
                       href={subLink.href}
                       className="block text-base py-2 px-4 rounded-md hover:bg-blue-50 transition-colors text-gray-700 pl-8"
                       onClick={closeMobileNav}
-                      title={subLink.title}
                     >
                       {subLink.title}
                     </Link>

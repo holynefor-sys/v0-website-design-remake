@@ -24,7 +24,7 @@ const ConditionsHeroSection = () => (
     />
     <div className="absolute inset-0 bg-black/50 z-10" />
     <div className="z-20 p-4">
-      <h1 className="text-4xl md:text-6xl font-extrabold">Умови навчання в центрі реабілітації &quot;Перемога&quot;</h1>
+      <h1 className="text-4xl md:text-6xl font-extrabold">Умови навчання</h1>
       <p className="mt-4 max-w-2xl mx-auto text-lg md:text-xl text-gray-200">
         Все, що потрібно знати про життя та навчання в нашому центрі.
       </p>
@@ -52,7 +52,7 @@ const InfoCardsSection = () => (
         <div className="flex items-start gap-4">
           <DollarSign className="h-8 w-8 text-blue-500 mt-1" />
           <div>
-            <h2 className="text-2xl font-bold text-gray-800 mb-2">Умови оплати програми реабілітації</h2>
+            <h2 className="text-2xl font-bold text-gray-800 mb-2">Умови оплати</h2>
             <p className="text-gray-600 leading-relaxed">
               Для тих, хто звертається до нас вперше, програма є <span className="font-bold">безкоштовною</span>. Якщо
               ви вже проходили реабілітацію раніше і маєте фінансову можливість, ми просимо про добровільну пожертву в
@@ -88,7 +88,7 @@ const RulesSection = () => (
       <div>
         <div className="flex items-center gap-3 mb-4">
           <Shirt className="h-8 w-8 text-blue-500" />
-          <h2 className="text-2xl font-bold text-gray-800">Що брати з собою до центру</h2>
+          <h2 className="text-2xl font-bold text-gray-800">Що брати з-собою</h2>
         </div>
         <p className="text-gray-600 mb-6">
           Ми просимо взяти лише найнеобхідніше. Ми забезпечуємо комфортні умови та триразове харчування.
@@ -105,7 +105,7 @@ const RulesSection = () => (
       <div>
         <div className="flex items-center gap-3 mb-4">
           <BarChart3 className="h-8 w-8 text-blue-500" />
-          <h2 className="text-2xl font-bold text-gray-800">Основні правила перебування</h2>
+          <h2 className="text-2xl font-bold text-gray-800">Основні правила</h2>
         </div>
         <p className="text-gray-600 mb-6">
           Дотримання правил є обов&apos;язковим для всіх учасників програми та запорукою успішної реабілітації.
@@ -141,10 +141,10 @@ const PhoneAlertSection = () => (
 )
 
 const leisureActivities = [
-  { title: "Гра у волейбол", img: "/images/volleyball.jpg", alt: "Учасники центру Перемога грають у волейбол на свіжому повітрі" },
-  { title: "Ранкова зарядка", img: "/images/ранкова зарядка.JPG", alt: "Ранкова зарядка учасників програми реабілітації" },
-  { title: "Відпочинок на річці", img: "/images/відпочинок на річці.jpg", alt: "Спільний відпочинок учасників центру на річці" },
-  { title: "Спільний обід", img: "/images/lunch.jpg", alt: "Спільний обід в їдальні центру Перемога" },
+  { title: "Гра у волейбол", img: "/images/volleyball.jpg" },
+  { title: "Ранкова зарядка", img: "/images/ранкова зарядка.JPG" },
+  { title: "Відпочинок на річці", img: "/images/відпочинок на річці.jpg" },
+  { title: "Спільний обід", img: "/images/lunch.jpg" },
 ]
 
 const LeisureSection = () => (
@@ -164,7 +164,7 @@ const LeisureSection = () => (
           <div key={activity.title} className="group relative overflow-hidden rounded-lg shadow-lg">
             <Image
               src={activity.img || "/placeholder.svg"}
-              alt={activity.alt || activity.title}
+              alt={activity.title}
               width={400}
               height={300}
               className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"

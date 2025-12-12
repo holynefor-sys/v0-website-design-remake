@@ -5,7 +5,7 @@ import { AnimatedSection } from "./animated-section"
 export const AboutUsIntroSection = () => (
   <AnimatedSection className="py-16 md:py-24 bg-gray-50 text-center">
     <div className="container mx-auto px-4 max-w-3xl">
-      <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-6">Допомога у звільненні від залежностей</h2>
+      <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-6">Допомога</h2>
       <p className="text-gray-600 mb-4 leading-relaxed">
         Наш центр був створений людьми, які колись самі пройшли через складні випробування та знайшли шлях до
         звільнення. Їхній особистий досвід став фундаментом для бажання допомагати іншим.

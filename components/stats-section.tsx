@@ -9,24 +9,9 @@ export const StatsSection = () => {
   const isInView = useInView(ref, { once: true, amount: 0.5 })
 
   const stats = [
-    { 
-      value: 150, 
-      label: "Щасливих сімей", 
-      suffix: "+",
-      description: "Відновили гармонію та довіру завдяки нашим програмам реабілітації"
-    },
-    { 
-      value: 1000, 
-      label: "Учасників", 
-      suffix: "+",
-      description: "Успішно завершили програму звільнення від залежностей"
-    },
-    { 
-      value: 15, 
-      label: "Років досвіду", 
-      suffix: "+",
-      description: "Допомагаємо людям в Івано-Франківську та Запорізькій області"
-    },
+    { value: 150, label: "Щасливих сімей", suffix: "+" },
+    { value: 1000, label: "Учасників", suffix: "+" },
+    { value: 15, label: "Років досвіду", suffix: "+" },
   ]
 
   return (
@@ -39,8 +24,7 @@ export const StatsSection = () => {
                 {isInView && <CountUp end={stat.value} duration={2.5} />}
                 {stat.suffix}
               </h4>
-              <p className="mt-2 text-lg text-blue-100 font-semibold">{stat.label}</p>
-              <p className="mt-2 text-sm text-blue-50 max-w-xs mx-auto">{stat.description}</p>
+              <p className="mt-2 text-lg text-blue-100">{stat.label}</p>
             </div>
           ))}
         </div>
