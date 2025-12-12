@@ -8,7 +8,7 @@ import { AnimatedSection } from "./animated-section"
 export const CentersSection = () => (
   <AnimatedSection className="py-16 md:py-24 bg-white">
     <div className="container mx-auto px-4 text-center">
-      <h2 className="text-3xl md:text-4xl font-bold text-gray-800">Наші Центри</h2>
+      <h2 className="text-3xl md:text-4xl font-bold text-gray-800">Наші центри в Україні</h2>
       <p className="mt-4 max-w-3xl mx-auto text-lg text-gray-600">
         Безпечні та комфортні простори для відновлення та духовного зростання.
       </p>
@@ -16,7 +16,7 @@ export const CentersSection = () => (
         <Card className="overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
           <Image
             src="/images/frankivsk.jpg"
-            alt="Центр в Івано-Франківську"
+            alt="Центр реабілітації Перемога в Івано-Франківську"
             width={500}
             height={300}
             className="w-full h-64 object-cover"
@@ -32,7 +32,7 @@ export const CentersSection = () => (
         <Card className="overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
           <Image
             src="/images/zaporizhzhia-center.jpg"
-            alt="Центр у Запорізькій області"
+            alt="Філія центру Перемога у Запорізькій області"
             width={500}
             height={300}
             className="w-full h-64 object-cover"
