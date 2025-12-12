@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useRef, useEffect } from "react"
+import React, { useState, useRef, useEffect } from "react"
 import Image from "next/image"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
@@ -484,11 +484,13 @@ const KnowingGodGallerySection = () => (
 
 // --- Main Page Component ---
 
-export default function DirectionPage({ params }: { params: { slug: string } }) {
+export default function DirectionPage({ params }: { params: Promise<{ slug: string }> }) {
   const [isFormOpen, setIsFormOpen] = useState(false)
   const coursesRef = useRef<HTMLElement>(null)
   const [isCallbackFormOpen, setIsCallbackFormOpen] = useState(false)
   const [isPhoneChoiceOpen, setIsPhoneChoiceOpen] = useState(false)
+  
+  const { slug } = React.use(params)
 
   const handleScrollToCourses = () => {
     coursesRef.current?.scrollIntoView({ behavior: "smooth" })
@@ -498,7 +500,7 @@ export default function DirectionPage({ params }: { params: { slug: string } }) 
     window.scrollTo(0, 0)
   }, [])
 
-  if (params.slug === "freedom-from-addiction") {
+  if (slug === "freedom-from-addiction") {
     return (
       <div className="bg-white">
         <Header setIsCallbackFormOpen={setIsCallbackFormOpen} setIsPhoneChoiceOpen={setIsPhoneChoiceOpen} />
@@ -537,7 +539,7 @@ export default function DirectionPage({ params }: { params: { slug: string } }) 
     )
   }
 
-  if (params.slug === "spiritual-growth") {
+  if (slug === "spiritual-growth") {
     return (
       <div className="bg-white">
         <Header setIsCallbackFormOpen={setIsCallbackFormOpen} setIsPhoneChoiceOpen={setIsPhoneChoiceOpen} />
@@ -555,7 +557,7 @@ export default function DirectionPage({ params }: { params: { slug: string } }) 
     )
   }
 
-  if (params.slug === "knowing-god") {
+  if (slug === "knowing-god") {
     return (
       <div className="bg-white">
         <Header setIsCallbackFormOpen={setIsCallbackFormOpen} setIsPhoneChoiceOpen={setIsPhoneChoiceOpen} />
@@ -573,7 +575,7 @@ export default function DirectionPage({ params }: { params: { slug: string } }) 
     )
   }
 
-  const content = pageContent[params.slug]
+  const content = pageContent[slug]
 
   if (!content) {
     notFound()
