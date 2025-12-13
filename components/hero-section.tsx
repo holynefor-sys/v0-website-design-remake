@@ -15,7 +15,7 @@ export const HeroSection = ({ onOpenForm }: { onOpenForm: () => void }) => {
         src="/images/головна.jpg"
         alt="Схід сонця над долиною"
         fill
-        style={{ objectFit: 'cover' }}
+        style={{ objectFit: "cover" }}
         className="z-0 fixed inset-0 w-full h-full"
         priority
       />
@@ -30,15 +30,13 @@ export const HeroSection = ({ onOpenForm }: { onOpenForm: () => void }) => {
           className="text-4xl md:text-6xl lg:text-7xl font-extrabold tracking-tight"
           animate={{ y: [0, -10, 0] }}
           transition={{
-            duration: 1.5, // Faster animation
+            duration: 1.5,
             ease: "easeInOut",
             repeat: Number.POSITIVE_INFINITY,
             repeatType: "reverse",
           }}
         >
-          Навчально-духовний центр &quot;Перемога&quot; -
-          <br />
-          <span className="text-blue-400">Ваш шлях до свободи</span>
+          Почни жити <span className="text-blue-400">повноцінним життям</span>
         </motion.h1>
         <p className="mt-4 max-w-2xl mx-auto text-lg md:text-xl text-gray-200">
           Бог дає <span className="text-blue-400 font-semibold">справжню свободу</span>, мир, натхнення і сенс життя!
