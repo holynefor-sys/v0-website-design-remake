@@ -36,7 +36,9 @@ export const HeroSection = ({ onOpenForm }: { onOpenForm: () => void }) => {
             repeatType: "reverse",
           }}
         >
-          Почни жити <span className="text-blue-400">повноцінним життям</span>
+          Почни жити
+          <br />
+          <span className="text-blue-400">повноцінним життям</span>
         </motion.h1>
         <p className="mt-4 max-w-2xl mx-auto text-lg md:text-xl text-gray-200">
           Бог дає <span className="text-blue-400 font-semibold">справжню свободу</span>, мир, натхнення і сенс життя!
