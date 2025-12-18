@@ -12,12 +12,8 @@ export const CtaSection = ({ onOpenForm }: { onOpenForm: () => void }) => (
         Зв'яжіться з нами, щоб дізнатися більше про наші програми, або запишіться на найближчий курс.
       </p>
       <div className="mt-8">
-        <Button
-          size="lg"
-          onClick={onOpenForm}
-          className="px-12 py-7 text-xl font-semibold transition-all duration-300 hover:scale-110 hover:shadow-2xl"
-        >
-          <FilePenLine className="mr-2 h-7 w-7" />
+        <Button size="lg" onClick={onOpenForm}>
+          <FilePenLine className="mr-2 h-5 w-5" />
           Отримати консультацію
         </Button>
       </div>

@@ -2,7 +2,7 @@
 
 import Image from "next/image"
 import { Card, CardContent } from "@/components/ui/card"
-import { MapPin, Phone } from "lucide-react"
+import { MapPin } from "lucide-react"
 import { AnimatedSection } from "./animated-section"
 
 export const CentersSection = () => (
@@ -23,17 +23,10 @@ export const CentersSection = () => (
           />
           <CardContent className="p-6 text-left">
             <h3 className="text-xl font-semibold mb-2 text-gray-800">Центр в Івано-Франківську</h3>
-            <div className="flex items-center text-gray-600 mb-4">
+            <div className="flex items-center text-gray-600">
               <MapPin className="h-5 w-5 mr-2 text-blue-500" />
               <span>м. Івано-Франківськ</span>
             </div>
-            <a
-              href="tel:+380678154765"
-              className="inline-flex items-center gap-2 bg-blue-500 hover:bg-blue-600 text-white px-6 py-3 rounded-lg transition-all duration-300 hover:scale-110 text-base font-semibold"
-            >
-              <Phone className="h-5 w-5" />
-              <span>+380 67 815 47 65</span>
-            </a>
           </CardContent>
         </Card>
         <Card className="overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
@@ -46,17 +39,10 @@ export const CentersSection = () => (
           />
           <CardContent className="p-6 text-left">
             <h3 className="text-xl font-semibold mb-2 text-gray-800">Центр у Запорізькій області</h3>
-            <div className="flex items-center text-gray-600 mb-4">
+            <div className="flex items-center text-gray-600">
               <MapPin className="h-5 w-5 mr-2 text-blue-500" />
               <span>Запорізька область</span>
             </div>
-            <a
-              href="tel:+380681745680"
-              className="inline-flex items-center gap-2 bg-blue-500 hover:bg-blue-600 text-white px-6 py-3 rounded-lg transition-all duration-300 hover:scale-110 text-base font-semibold"
-            >
-              <Phone className="h-5 w-5" />
-              <span>+380 68 174 56 80</span>
-            </a>
           </CardContent>
         </Card>
       </div>

@@ -71,12 +71,10 @@ export const Header = ({
         { href: "/directions/freedom-from-addiction", title: "Звільнення від залежностей" },
         { href: "/directions/spiritual-growth", title: "Духовне зростання" },
         { href: "/directions/knowing-god", title: "Пізнання Бога" },
-        { href: "/directions/womens-center", title: "Жіночий Центр" },
       ],
     },
     { href: "/about", text: "Про нас" },
-    { href: "/conditions", text: "Умови" },
-    { href: "/blog", text: "Блог" },
+    { href: "/conditions", text: "Умови навчання" },
     { href: "/contacts", text: "Контакти" },
   ]
 
@@ -146,7 +144,7 @@ export const Header = ({
               )}
             </NavigationMenuList>
           </NavigationMenu>
-          <Button onClick={() => setIsCallbackFormOpen?.(true)} className="transition-all duration-300 hover:scale-110">
+          <Button onClick={() => setIsCallbackFormOpen?.(true)}>
             <Phone className="mr-2 h-4 w-4" />
             Зателефонувати
           </Button>
@@ -202,7 +200,7 @@ export const Header = ({
             <div className="mt-4 w-full">
               <Button
                 size="lg"
-                className="w-full transition-all duration-300 hover:scale-105"
+                className="w-full"
                 onClick={() => {
                   setIsCallbackFormOpen?.(true)
                   closeMobileNav()
