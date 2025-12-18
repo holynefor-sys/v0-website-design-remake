@@ -2,8 +2,9 @@
 
 import Image from "next/image"
 import { Card, CardContent } from "@/components/ui/card"
-import { MapPin } from "lucide-react"
+import { MapPin, Phone } from "lucide-react"
 import { AnimatedSection } from "./animated-section"
+import { Button } from "@/components/ui/button"
 
 export const CentersSection = () => (
   <AnimatedSection className="py-16 md:py-24 bg-white">
@@ -23,10 +24,16 @@ export const CentersSection = () => (
           />
           <CardContent className="p-6 text-left">
             <h3 className="text-xl font-semibold mb-2 text-gray-800">Центр в Івано-Франківську</h3>
-            <div className="flex items-center text-gray-600">
+            <div className="flex items-center text-gray-600 mb-4">
               <MapPin className="h-5 w-5 mr-2 text-blue-500" />
               <span>м. Івано-Франківськ</span>
             </div>
+            <Button asChild className="w-full transition-transform hover:scale-105">
+              <a href="tel:+380678154765">
+                <Phone className="mr-2 h-4 w-4" />
+                +380 67 815 47 65
+              </a>
+            </Button>
           </CardContent>
         </Card>
         <Card className="overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
@@ -39,10 +46,16 @@ export const CentersSection = () => (
           />
           <CardContent className="p-6 text-left">
             <h3 className="text-xl font-semibold mb-2 text-gray-800">Центр у Запорізькій області</h3>
-            <div className="flex items-center text-gray-600">
+            <div className="flex items-center text-gray-600 mb-4">
               <MapPin className="h-5 w-5 mr-2 text-blue-500" />
               <span>Запорізька область</span>
             </div>
+            <Button asChild className="w-full transition-transform hover:scale-105">
+              <a href="tel:+380681745680">
+                <Phone className="mr-2 h-4 w-4" />
+                +380 68 174 56 80
+              </a>
+            </Button>
           </CardContent>
         </Card>
       </div>

@@ -23,10 +23,10 @@ export const ChurchSection = () => (
           href="https://www.youtube.com/@matthew_2819"
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center gap-2 bg-red-600 hover:bg-red-700 text-white px-6 py-3 rounded-lg transition-colors duration-300"
+          className="inline-flex items-center gap-2 bg-red-600 hover:bg-red-700 text-white px-8 py-4 rounded-lg transition-all duration-300 hover:scale-105 text-lg font-semibold"
         >
-          <Youtube className="h-5 w-5" />
-          Наш YouTube канал
+          <Youtube className="h-6 w-6" />
+          YouTube церкви
         </a>
       </div>
     </div>
