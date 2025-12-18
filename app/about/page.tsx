@@ -49,7 +49,6 @@ const HistorySection = ({ onOpenForm }: { onOpenForm: () => void }) => (
           За роки існування ми перетворилися на провідний духовний центр, що провів сотні курсів, ретритів та семінарів.
           Наша спільнота об&apos;єднує тисячі людей, які прагнуть до усвідомленого життя.
         </p>
-        {/* Removed button as per request */}
       </div>
 
       {/* Image */}
@@ -149,8 +148,12 @@ const JoinCommunitySection = ({ onOpenForm }: { onOpenForm: () => void }) => (
       </h2>
       <p className="max-w-2xl mx-auto text-lg text-gray-300">Зробіть перший крок до свободи, яку має для Вас Ісус !</p>
       <div className="mt-8">
-        <Button size="lg" onClick={onOpenForm}>
-          <FilePenLine className="mr-2 h-5 w-5" />
+        <Button
+          size="lg"
+          onClick={onOpenForm}
+          className="px-12 py-7 text-xl font-semibold transition-all duration-300 hover:scale-110"
+        >
+          <FilePenLine className="mr-2 h-7 w-7" />
           Отримати консультацію
         </Button>
       </div>

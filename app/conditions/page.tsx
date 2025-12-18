@@ -24,7 +24,7 @@ const ConditionsHeroSection = () => (
     />
     <div className="absolute inset-0 bg-black/50 z-10" />
     <div className="z-20 p-4">
-      <h1 className="text-4xl md:text-6xl font-extrabold">Умови навчання в центрі реабілітації &quot;Перемога&quot;</h1>
+      <h1 className="text-4xl md:text-6xl font-extrabold">Умови</h1>
       <p className="mt-4 max-w-2xl mx-auto text-lg md:text-xl text-gray-200">
         Все, що потрібно знати про життя та навчання в нашому центрі.
       </p>
@@ -141,9 +141,21 @@ const PhoneAlertSection = () => (
 )
 
 const leisureActivities = [
-  { title: "Гра у волейбол", img: "/images/volleyball.jpg", alt: "Учасники центру Перемога грають у волейбол на свіжому повітрі" },
-  { title: "Ранкова зарядка", img: "/images/ранкова зарядка.JPG", alt: "Ранкова зарядка учасників програми реабілітації" },
-  { title: "Відпочинок на річці", img: "/images/відпочинок на річці.jpg", alt: "Спільний відпочинок учасників центру на річці" },
+  {
+    title: "Гра у волейбол",
+    img: "/images/volleyball.jpg",
+    alt: "Учасники центру Перемога грають у волейбол на свіжому повітрі",
+  },
+  {
+    title: "Ранкова зарядка",
+    img: "/images/ранкова зарядка.JPG",
+    alt: "Ранкова зарядка учасників програми реабілітації",
+  },
+  {
+    title: "Відпочинок на річці",
+    img: "/images/відпочинок на річці.jpg",
+    alt: "Спільний відпочинок учасників центру на річці",
+  },
   { title: "Спільний обід", img: "/images/lunch.jpg", alt: "Спільний обід в їдальні центру Перемога" },
 ]
 
@@ -169,7 +181,6 @@ const LeisureSection = () => (
               height={300}
               className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
             />
-            {/* Removed overlay div */}
             <div className="absolute inset-0 flex items-end p-4">
               <h3 className="text-white text-lg font-semibold">{activity.title}</h3>
             </div>

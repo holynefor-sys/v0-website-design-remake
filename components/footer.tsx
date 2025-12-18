@@ -107,8 +107,23 @@ export const Footer = ({
                 </Link>
               </li>
               <li>
-                <Link href="/directions/knowing-god" className="hover:text-white text-sm" onClick={handleLinkClick} title="Курси для пізнання Бога та основ віри">
+                <Link
+                  href="/directions/knowing-god"
+                  className="hover:text-white text-sm"
+                  onClick={handleLinkClick}
+                  title="Курси для пізнання Бога та основ віри"
+                >
                   Пізнання Бога
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/directions/womens-center"
+                  className="hover:text-white text-sm"
+                  onClick={handleLinkClick}
+                  title="Жіночий центр реабілітації та підтримки"
+                >
+                  Жіночий Центр
                 </Link>
               </li>
             </ul>
@@ -117,17 +132,42 @@ export const Footer = ({
             <h4 className="font-semibold text-white mb-4">Швидкі Посилання</h4>
             <ul className="space-y-2">
               <li>
-                <Link href="/about" className="hover:text-white text-sm" onClick={handleLinkClick} title="Дізнатися більше про історію та місію центру Перемога">
+                <Link
+                  href="/about"
+                  className="hover:text-white text-sm"
+                  onClick={handleLinkClick}
+                  title="Дізнатися більше про історію та місію центру Перемога"
+                >
                   Про нас
                 </Link>
               </li>
               <li>
-                <Link href="/conditions" className="hover:text-white text-sm" onClick={handleLinkClick} title="Умови навчання та перебування в центрі">
-                  Умови навчання
+                <Link
+                  href="/conditions"
+                  className="hover:text-white text-sm"
+                  onClick={handleLinkClick}
+                  title="Умови навчання та перебування в центрі"
+                >
+                  Умови
                 </Link>
               </li>
               <li>
-                <Link href="/contacts" className="hover:text-white text-sm" onClick={handleLinkClick} title="Контактна інформація та зв'язок з центром">
+                <Link
+                  href="/blog"
+                  className="hover:text-white text-sm"
+                  onClick={handleLinkClick}
+                  title="Новини та статті про життя в центрі"
+                >
+                  Блог
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/contacts"
+                  className="hover:text-white text-sm"
+                  onClick={handleLinkClick}
+                  title="Контактна інформація та зв'язок з центром"
+                >
                   Контакти
                 </Link>
               </li>

@@ -1,12 +1,9 @@
 "use client"
 
-import React, { useState, useRef, useEffect } from "react"
+import { useState, useEffect } from "react"
 import Image from "next/image"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
-import { ApplicationForm } from "@/components/application-form"
-import { notFound } from "next/navigation"
-import { AnimatedSection } from "@/components/animated-section"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import {
@@ -16,22 +13,21 @@ import {
   GlassWater,
   Pill,
   Dice5,
-  Camera,
   BookOpen,
   TrendingUp,
   Star,
-  KeyRound,
-  MessageCircle,
   FilePenLine,
+  Camera,
+  Sparkles,
 } from "lucide-react"
-import { BeforeAfterGallerySection } from "@/components/before-after-gallery-section"
+import { AnimatedSection } from "@/components/animated-section"
+import { ApplicationForm } from "@/components/application-form"
 import { CallbackForm } from "@/components/callback-form"
 import { PhoneCallChoiceDialog } from "@/components/phone-call-choice-dialog"
 
-// --- Fallback Content for other slugs ---
-const pageContent: { [key: string]: { title: string; text: string } } = {
-  // No fallback content needed for the main 3 pages
-}
+/* ----------  Data ---------- */
+
+const validSlugs = ["freedom-from-addiction", "spiritual-growth", "knowing-god", "womens-center"]
 
 // --- Sections for 'Freedom from Addiction' page ---
 
@@ -46,7 +42,7 @@ const FreedomHeroSection = () => (
     />
     <div className="absolute inset-0 bg-black/60 z-10" />
     <div className="z-20 p-4 absolute inset-0 flex flex-col items-center justify-center">
-      <h1 className="text-4xl md:text-6xl font-extrabold">Звільнення від залежностей в центрі &quot;Перемога&quot;</h1>
+      <h1 className="text-4xl md:text-6xl font-extrabold">Звільнення від залежностей</h1>
       <p className="mt-4 max-w-2xl mx-auto text-lg md:text-xl text-gray-200">
         Новий початок і шлях до повноцінного життя.
       </p>
@@ -63,8 +59,12 @@ const PathToFreedomSection = ({ onOpenForm }: { onOpenForm: () => void }) => (
           Наша програма звільнення від залежностей базується на християнських цінностях, підтримці спільноти та
           перевірених методиках. Ми пропонуємо безпечне середовище, де ви можете знайти зцілення та надію.
         </p>
-        <Button size="lg" onClick={onOpenForm}>
-          <FilePenLine className="mr-2 h-5 w-5" />
+        <Button
+          size="lg"
+          onClick={onOpenForm}
+          className="px-10 py-7 text-xl font-semibold transition-all duration-300 hover:scale-110"
+        >
+          <FilePenLine className="mr-2 h-7 w-7" />
           Отримати консультацію
         </Button>
       </div>
@@ -72,14 +72,13 @@ const PathToFreedomSection = ({ onOpenForm }: { onOpenForm: () => void }) => (
         <Card className="overflow-hidden shadow-xl rounded-lg max-w-md">
           <CardContent className="p-0">
             <Image
-              src="/images/directions/2p.jpg" // Змінено на 2p.jpg
+              src="/images/directions/2p.jpg"
               alt="Група учасників програми звільнення від залежностей в дружній бесіді"
               width={600}
               height={750}
               className="w-full h-auto object-cover"
               unoptimized={true}
             />
-            {/* Додано підпис для зображення "Водне Хрещення" */}
           </CardContent>
         </Card>
       </div>
@@ -176,8 +175,14 @@ const WeHelpOvercomeSection = () => (
 const galleryImages = [
   { src: "/images/directions/bbq.jpg", alt: "Спільний відпочинок учасників програми реабілітації на природі" },
   { src: "/images/directions/meal.jpg", alt: "Спільний обід учасників центру Перемога в їдальні" },
-  { src: "/images/directions/man-with-bible.jpg", alt: "Учасник програми вивчає Біблію як частину духовного відновлення" },
-  { src: "/images/directions/certificates.jpg", alt: "Урочисте вручення сертифікатів випускникам програми реабілітації" },
+  {
+    src: "/images/directions/man-with-bible.jpg",
+    alt: "Учасник програми вивчає Біблію як частину духовного відновлення",
+  },
+  {
+    src: "/images/directions/certificates.jpg",
+    alt: "Урочисте вручення сертифікатів випускникам програми реабілітації",
+  },
 ]
 
 const LifeMomentsSection = () => (
@@ -211,6 +216,90 @@ const LifeMomentsSection = () => (
   </AnimatedSection>
 )
 
+const FreedomBeforeAfterSection = () => (
+  <AnimatedSection className="py-16 md:py-24 bg-white">
+    <div className="container mx-auto px-4 text-center">
+      <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Приклади трансформації</h2>
+      <p className="mt-4 max-w-3xl mx-auto text-lg text-gray-600 mb-12">Реальні історії змін наших випускників</p>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 items-start">
+        <Card className="overflow-hidden shadow-lg">
+          <div className="relative">
+            <Image
+              src="/images/before-1.JPG"
+              alt="Перший учасник до програми"
+              width={400}
+              height={500}
+              className="w-full h-80 object-cover"
+            />
+            <div className="absolute top-4 left-4 bg-red-500 text-white px-3 py-1 rounded-full text-sm font-semibold">
+              До
+            </div>
+          </div>
+          <CardContent className="p-4 bg-white">
+            <p className="text-sm text-gray-600 text-center">Залежність, втрата надії</p>
+          </CardContent>
+        </Card>
+        <Card className="overflow-hidden shadow-lg">
+          <div className="relative">
+            <Image
+              src="/images/after-1.JPG"
+              alt="Перший учасник після програми"
+              width={400}
+              height={500}
+              className="w-full h-80 object-cover"
+            />
+            <div className="absolute top-4 left-4 bg-green-500 text-white px-3 py-1 rounded-full text-sm font-semibold">
+              Після
+            </div>
+          </div>
+          <CardContent className="p-4 bg-white">
+            <p className="text-sm text-gray-600 text-center">Відновлення, нова надія</p>
+          </CardContent>
+        </Card>
+        <Card className="overflow-hidden shadow-lg">
+          <Image
+            src="/images/before-2.png"
+            alt="Другий учасник до програми"
+            width={400}
+            height={500}
+            className="w-full h-80 object-cover"
+          />
+          <CardContent className="p-4 bg-white">
+            <p className="text-center text-base font-semibold text-gray-700 mb-2">До</p>
+            <p className="text-sm text-gray-600 text-center">Фізичне виснаження, емоційна нестабільність</p>
+          </CardContent>
+        </Card>
+        <Card className="overflow-hidden shadow-lg md:col-start-2 lg:col-start-2">
+          <Image
+            src="/images/after-2.jpg"
+            alt="Другий учасник після програми"
+            width={400}
+            height={500}
+            className="w-full h-80 object-cover"
+          />
+          <CardContent className="p-4 bg-white">
+            <p className="text-center text-base font-semibold text-gray-700 mb-2">Після</p>
+            <p className="text-sm text-gray-600 text-center">Здорове тіло, емоційна стабільність, повноцінне життя</p>
+          </CardContent>
+        </Card>
+        <Card className="overflow-hidden shadow-lg md:col-start-1 lg:col-start-3">
+          <Image
+            src="/images/1111.jpg"
+            alt="Третій учасник після програми"
+            width={400}
+            height={500}
+            className="w-full h-80 object-cover"
+          />
+          <CardContent className="p-4 bg-white">
+            <p className="text-center text-base font-semibold text-gray-700 mb-2">Після</p>
+            <p className="text-sm text-gray-600 text-center">Нове життя в радості та спільноті</p>
+          </CardContent>
+        </Card>
+      </div>
+    </div>
+  </AnimatedSection>
+)
+
 // --- Sections for 'Spiritual Growth' page ---
 
 const SpiritualGrowthHeroSection = ({ onOpenForm }: { onOpenForm: () => void }) => (
@@ -224,11 +313,10 @@ const SpiritualGrowthHeroSection = ({ onOpenForm }: { onOpenForm: () => void }) 
     />
     <div className="absolute inset-0 bg-black/60 z-10" />
     <div className="z-20 p-4 absolute inset-0 flex flex-col items-center justify-center">
-      <h1 className="text-4xl md:text-6xl font-extrabold">Духовне зростання в центрі &quot;Перемога&quot;</h1>
+      <h1 className="text-4xl md:text-6xl font-extrabold">Духовне зростання</h1>
       <p className="mt-4 max-w-2xl mx-auto text-lg md:text-xl text-gray-200">
         Зміцнюйте свою віру та йдіть шляхом світла.
       </p>
-      {/* Removed button as per request */}
     </div>
   </section>
 )
@@ -242,8 +330,12 @@ const DeepenFaithSection = ({ onOpenForm }: { onOpenForm: () => void }) => (
           Наші програми духовного зростання створені для того, щоб допомогти вам краще зрозуміти основи християнства,
           поглибити ваші стосунки з Богом та застосовувати біблійні принципи у повсякденному житті.
         </p>
-        <Button size="lg" onClick={onOpenForm}>
-          <FilePenLine className="mr-2 h-5 w-5" />
+        <Button
+          size="lg"
+          onClick={onOpenForm}
+          className="px-10 py-7 text-xl font-semibold transition-all duration-300 hover:scale-110"
+        >
+          <FilePenLine className="mr-2 h-7 w-7" />
           Отримати консультацію
         </Button>
       </div>
@@ -257,9 +349,7 @@ const DeepenFaithSection = ({ onOpenForm }: { onOpenForm: () => void }) => (
             className="w-full h-auto object-cover transition-transform duration-300 group-hover:scale-105"
             unoptimized={true}
           />
-          <div className="p-6 bg-gray-50">
-            {/* Removed: <h3 className="text-xl font-semibold text-gray-800">Вивчення Біблії</h3> */}
-          </div>
+          <div className="p-6 bg-gray-50"></div>
         </CardContent>
       </Card>
     </div>
@@ -359,78 +449,74 @@ const KnowingGodHeroSection = () => (
     <div className="z-20 p-4 absolute inset-0 flex flex-col items-center justify-center">
       <h1 className="text-4xl md:text-6xl font-extrabold">Пізнання Бога - перший крок до віри</h1>
       <p className="mt-4 max-w-2xl mx-auto text-lg md:text-xl text-gray-200">
-        Відкрийте для себе любов, істину та мету вашого життя.
+        Відкрийте для себе любов та милість Творця.
       </p>
     </div>
   </section>
 )
 
-const FirstStepSection = ({ onOpenForm }: { onOpenForm: () => void }) => (
+const IntroToFaithSection = ({ onOpenForm }: { onOpenForm: () => void }) => (
   <AnimatedSection className="py-16 md:py-24 bg-white">
     <div className="container mx-auto px-4 grid lg:grid-cols-2 gap-12 items-center">
-      <div>
-        <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-6">Ваш перший крок до віри</h2>
-        <p className="text-gray-600 mb-8 leading-relaxed">
-          Цей курс призначений для всіх, хто шукає відповіді на фундаментальні питання про Бога, віру та сенс життя.
-          Незалежно від вашого попереднього досвіду, ми пропонуємо відкритий та дружній простір для дослідження.
-        </p>
-        <Button size="lg" onClick={onOpenForm}>
-          <FilePenLine className="mr-2 h-5 w-5" />
-          Отримати консультацію
-        </Button>
-      </div>
-      <Card className="overflow-hidden shadow-xl rounded-lg max-w-sm mx-auto">
-        {" "}
-        {/* Додано max-w-sm mx-auto для зменшення та центрування */}
+      <Card className="overflow-hidden shadow-xl rounded-lg order-2 lg:order-1">
         <CardContent className="p-0">
           <Image
-            src="/images/directions/baptism.jpg" // Змінено на 2p.jpg
-            alt="Водне хрещення в центрі Перемога - важливий крок у пізнанні Бога"
-            width={400} // Зменшено ширину
-            height={300} // Зменшено висоту
+            src="/images/directions/3p.jpg"
+            alt="Вивчення основ християнської віри в центрі Перемога"
+            width={600}
+            height={400}
             className="w-full h-auto object-cover"
             unoptimized={true}
           />
-          <div className="p-4 bg-white">
-            {" "}
-            {/* Додано блок для підпису */}
-            <p className="text-center text-xl font-semibold text-gray-700">Водне Хрещення</p> {/* Оновлено підпис */}
-          </div>
         </CardContent>
       </Card>
+      <div className="order-1 lg:order-2">
+        <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-6">Ваш шлях до пізнання Бога</h2>
+        <p className="text-gray-600 mb-8 leading-relaxed">
+          Якщо ви тільки починаєте свій шлях у вірі або хочете краще зрозуміти християнство, наша програма "Пізнання
+          Бога" створена спеціально для вас. Ми допоможемо вам відкрити біблійні істини, знайти відповіді на ваші
+          запитання та побудувати міцні основи віри.
+        </p>
+        <Button
+          size="lg"
+          onClick={onOpenForm}
+          className="px-10 py-7 text-xl font-semibold transition-all duration-300 hover:scale-110"
+        >
+          <FilePenLine className="mr-2 h-7 w-7" />
+          Отримати консультацію
+        </Button>
+      </div>
     </div>
   </AnimatedSection>
 )
 
-const keyTopics = [
+const faithTopics = [
   {
-    icon: KeyRound,
-    title: "Хто такий Бог?",
-    text: "Дослідження природи Бога, Його характеру та любові до людства.",
+    icon: BookOpen,
+    title: "Основи християнства",
+    text: "Хто такий Бог, хто такий Ісус Христос, що таке спасіння та благодать.",
   },
   {
     icon: Heart,
-    title: "Сенс життя",
-    text: "Пошук мети та призначення через призму християнського світогляду.",
+    title: "Життя з Богом",
+    text: "Молитва, читання Біблії, спілкування з Богом у повсякденному житті.",
   },
   {
-    icon: MessageCircle,
-    title: "Основи молитви",
-    text: "Як будувати особисті стосунки з Богом через спілкування та молитву.",
+    icon: Users,
+    title: "Церква та спільнота",
+    text: "Роль церкви в житті віруючого, важливість християнського братерства.",
   },
 ]
 
-const KeyTopicsSection = () => (
+const WhatYouWillLearnSection = () => (
   <AnimatedSection className="py-16 md:py-24 bg-gray-50">
     <div className="container mx-auto px-4 text-center">
-      <h2 className="text-3xl md:text-4xl font-bold text-gray-800">Ключові теми нашого курсу</h2>
+      <h2 className="text-3xl md:text-4xl font-bold text-gray-800">Що ви дізнаєтесь</h2>
       <p className="mt-4 max-w-3xl mx-auto text-lg text-gray-600">
-        Ми розглянемо основні питання, що допоможуть вам
-        <br />
-        побудувати міцний фундамент віри
+        Наша програма охоплює найважливіші теми для початку вашого духовного шляху.
       </p>
       <div className="mt-12 grid sm:grid-cols-1 md:grid-cols-3 gap-8">
-        {keyTopics.map((topic) => (
+        {faithTopics.map((topic) => (
           <Card key={topic.title} className="p-8 text-center shadow-lg hover:shadow-xl transition-shadow">
             <div className="flex justify-center mb-6">
               <div className="p-5 bg-blue-100 rounded-full">
@@ -447,19 +533,19 @@ const KeyTopicsSection = () => (
 )
 
 const knowingGodGalleryImages = [
-  { src: "/images/directions/1p.jpg", alt: "Молодіжне зібрання з вивчення основ християнської віри" },
-  { src: "/images/directions/3p.jpg", alt: "Групове фото учасників курсів пізнання Бога" },
+  { src: "/images/directions/baptism.jpg", alt: "Водне хрещення учасників центру Перемога" },
+  { src: "/images/directions/1p.jpg", alt: "Біблійні заняття в центрі Перемога для нових віруючих" },
 ]
 
 const KnowingGodGallerySection = () => (
-  <AnimatedSection className="py-16 md:py-24 bg-gray-50">
+  <AnimatedSection className="py-16 md:py-24 bg-white">
     <div className="container mx-auto px-4 text-center">
       <div className="flex justify-center items-center gap-3 mb-4">
         <Camera className="h-8 w-8 text-blue-500" />
-        <h2 className="text-3xl md:text-4xl font-bold text-gray-800">Моменти пізнання Бога в спільноті</h2>
+        <h2 className="text-3xl md:text-4xl font-bold text-gray-800">Пізнання Бога в дії</h2>
       </div>
       <p className="mt-4 max-w-3xl mx-auto text-lg text-gray-600">
-        Наше життя сповнене спілкування, підтримки та спільних перемог !
+        Переживання Божої любові та благодаті в нашій спільноті
       </p>
       <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 gap-6">
         {knowingGodGalleryImages.map((image, index) => (
@@ -482,113 +568,202 @@ const KnowingGodGallerySection = () => (
   </AnimatedSection>
 )
 
-// --- Main Page Component ---
+// --- Sections for 'Womens Center' page ---
 
-export default function DirectionPage({ params }: { params: Promise<{ slug: string }> }) {
+const WomensCenterHeroSection = () => (
+  <section className="relative h-[60vh] flex items-center justify-center text-center text-white">
+    <Image
+      src="/images/1111.jpg"
+      alt="Жіночий центр Перемога"
+      fill
+      className="object-cover z-0 fixed inset-0 w-full h-full"
+      priority
+    />
+    <div className="absolute inset-0 bg-black/60 z-10" />
+    <div className="z-20 p-4 absolute inset-0 flex flex-col items-center justify-center">
+      <h1 className="text-4xl md:text-6xl font-extrabold">Жіночий Центр</h1>
+      <p className="mt-4 max-w-2xl mx-auto text-lg md:text-xl text-gray-200">
+        Підтримка, відновлення та нова надія для жінок
+      </p>
+    </div>
+  </section>
+)
+
+const WomensCenterIntroSection = ({ onOpenForm }: { onOpenForm: () => void }) => (
+  <AnimatedSection className="py-16 md:py-24 bg-white">
+    <div className="container mx-auto px-4 grid lg:grid-cols-2 gap-12 items-center">
+      <div>
+        <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-6">
+          Безпечний простір для жіночого відновлення
+        </h2>
+        <p className="text-gray-600 mb-8 leading-relaxed">
+          Наш жіночий центр створений спеціально для підтримки жінок, які прагнуть змінити своє життя. Ми розуміємо
+          унікальні виклики, з якими стикаються жінки, і пропонуємо комплексну програму відновлення в атмосфері
+          підтримки та розуміння.
+        </p>
+        <Button
+          size="lg"
+          onClick={onOpenForm}
+          className="px-10 py-7 text-xl font-semibold transition-all duration-300 hover:scale-110"
+        >
+          <FilePenLine className="mr-2 h-7 w-7" />
+          Отримати консультацію
+        </Button>
+      </div>
+      <div className="flex justify-center items-center">
+        <Card className="overflow-hidden shadow-xl rounded-lg max-w-md">
+          <CardContent className="p-0">
+            <Image
+              src="/images/3333.JPG"
+              alt="Спільнота жінок в центрі Перемога"
+              width={600}
+              height={750}
+              className="w-full h-auto object-cover"
+              unoptimized={true}
+            />
+          </CardContent>
+        </Card>
+      </div>
+    </div>
+  </AnimatedSection>
+)
+
+const womensProgramFeatures = [
+  {
+    icon: Heart,
+    title: "Емоційне зцілення",
+    text: "Робота з травмами, страхами та емоційними ранами в безпечному середовищі.",
+  },
+  {
+    icon: Users,
+    title: "Жіноча спільнота",
+    text: "Підтримка від жінок, які розуміють ваш шлях та готові допомогти.",
+  },
+  {
+    icon: Sparkles,
+    title: "Особистісне зростання",
+    text: "Розвиток впевненості, самоповаги та навичок для нового життя.",
+  },
+]
+
+const WomensProgramSection = () => (
+  <AnimatedSection className="py-16 md:py-24 bg-gray-50">
+    <div className="container mx-auto px-4 text-center">
+      <h2 className="text-3xl md:text-4xl font-bold text-gray-800">Наша програма для жінок</h2>
+      <p className="mt-4 max-w-3xl mx-auto text-lg text-gray-600">
+        Комплексний підхід до відновлення жіночого здоров'я - душі, тіла та розуму
+      </p>
+      <div className="mt-12 grid sm:grid-cols-1 md:grid-cols-3 gap-8">
+        {womensProgramFeatures.map((feature) => (
+          <Card key={feature.title} className="p-8 text-center shadow-lg hover:shadow-xl transition-shadow">
+            <div className="flex justify-center mb-6">
+              <div className="p-5 bg-pink-100 rounded-full">
+                <feature.icon className="h-10 w-10 text-pink-500" />
+              </div>
+            </div>
+            <h3 className="text-2xl font-semibold text-gray-800 mb-3">{feature.title}</h3>
+            <p className="text-gray-600">{feature.text}</p>
+          </Card>
+        ))}
+      </div>
+    </div>
+  </AnimatedSection>
+)
+
+const womensCenterGalleryImages = [
+  { src: "/images/2222.JPG", alt: "Жінки центру Перемога на груповому занятті" },
+  { src: "/images/22222.JPG", alt: "Жіноча спільнота центру Перемога" },
+]
+
+const WomensCenterGallerySection = () => (
+  <AnimatedSection className="py-16 md:py-24 bg-white">
+    <div className="container mx-auto px-4 text-center">
+      <div className="flex justify-center items-center gap-3 mb-4">
+        <Camera className="h-8 w-8 text-pink-500" />
+        <h2 className="text-3xl md:text-4xl font-bold text-gray-800">Життя в жіночому центрі</h2>
+      </div>
+      <p className="mt-4 max-w-3xl mx-auto text-lg text-gray-600">
+        Підтримка, дружба та спільне зростання в атмосфері любові та розуміння
+      </p>
+      <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 gap-6">
+        {womensCenterGalleryImages.map((image, index) => (
+          <div key={index} className="group relative overflow-hidden rounded-lg shadow-lg">
+            <Image
+              src={image.src || "/placeholder.svg"}
+              alt={image.alt}
+              width={600}
+              height={450}
+              className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+              unoptimized={true}
+            />
+            <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+              <p className="text-white text-sm">{image.alt}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </AnimatedSection>
+)
+
+/* ----------  Page Component ---------- */
+
+export default function DirectionsDetailPage({ params }: { params: { slug: string } }) {
   const [isFormOpen, setIsFormOpen] = useState(false)
-  const coursesRef = useRef<HTMLElement>(null)
   const [isCallbackFormOpen, setIsCallbackFormOpen] = useState(false)
   const [isPhoneChoiceOpen, setIsPhoneChoiceOpen] = useState(false)
-  
-  const { slug } = React.use(params)
-
-  const handleScrollToCourses = () => {
-    coursesRef.current?.scrollIntoView({ behavior: "smooth" })
-  }
 
   useEffect(() => {
     window.scrollTo(0, 0)
   }, [])
 
-  if (slug === "freedom-from-addiction") {
-    return (
-      <div className="bg-white">
-        <Header setIsCallbackFormOpen={setIsCallbackFormOpen} setIsPhoneChoiceOpen={setIsPhoneChoiceOpen} />
-        <ApplicationForm isOpen={isFormOpen} onOpenChange={setIsFormOpen} />
-        <CallbackForm isOpen={isCallbackFormOpen} onOpenChange={setIsCallbackFormOpen} />
-        <PhoneCallChoiceDialog isOpen={isPhoneChoiceOpen} onOpenChange={setIsPhoneChoiceOpen} />
-        <main>
-          <FreedomHeroSection />
-          <PathToFreedomSection onOpenForm={() => setIsFormOpen(true)} />
-          <ProgramIncludesSection />
-          <BeforeAfterGallerySection
-            title="Приклади трансформації"
-            description="Подивіться, як змінюється життя наших учасників"
-            pairs={[
-              {
-                beforeSrc: "/images/до2.jpeg",
-                afterSrc: "/images/после2.jpeg",
-                beforeAlt: "Людина до перебування в центрі",
-                afterAlt: "Людина після перебування в центрі",
-                description: "Приклад 1: Нове життя в родині", // Changed to Приклад 1
-              },
-              {
-                beforeSrc: "/images/до1.jpeg",
-                afterSrc: "/images/после1.jpeg",
-                beforeAlt: "Людина до перебування в центрі",
-                afterAlt: "Людина після перебування в центрі",
-                description: "Приклад 2: Зміни після програми", // Changed to Приклад 2
-              },
-            ]}
-          />
-          <LifeMomentsSection />
-          <WeHelpOvercomeSection />
-        </main>
-        <Footer setIsCallbackFormOpen={setIsCallbackFormOpen} setIsPhoneChoiceOpen={setIsPhoneChoiceOpen} />
-      </div>
-    )
-  }
+  const { slug } = params
 
-  if (slug === "spiritual-growth") {
-    return (
-      <div className="bg-white">
-        <Header setIsCallbackFormOpen={setIsCallbackFormOpen} setIsPhoneChoiceOpen={setIsPhoneChoiceOpen} />
-        <ApplicationForm isOpen={isFormOpen} onOpenChange={setIsFormOpen} />
-        <CallbackForm isOpen={isCallbackFormOpen} onOpenChange={setIsCallbackFormOpen} />
-        <PhoneCallChoiceDialog isOpen={isPhoneChoiceOpen} onOpenChange={setIsPhoneChoiceOpen} />
-        <main>
-          <SpiritualGrowthHeroSection onOpenForm={() => setIsFormOpen(true)} />
-          <StudyDirectionsSection />
-          <DeepenFaithSection onOpenForm={() => setIsFormOpen(true)} />
-          <SpiritualGrowthGallerySection />
-        </main>
-        <Footer setIsCallbackFormOpen={setIsCallbackFormOpen} setIsPhoneChoiceOpen={setIsPhoneChoiceOpen} />
-      </div>
-    )
-  }
-
-  if (slug === "knowing-god") {
-    return (
-      <div className="bg-white">
-        <Header setIsCallbackFormOpen={setIsCallbackFormOpen} setIsPhoneChoiceOpen={setIsPhoneChoiceOpen} />
-        <ApplicationForm isOpen={isFormOpen} onOpenChange={setIsFormOpen} />
-        <CallbackForm isOpen={isCallbackFormOpen} onOpenChange={setIsCallbackFormOpen} />
-        <PhoneCallChoiceDialog isOpen={isPhoneChoiceOpen} onOpenChange={setIsPhoneChoiceOpen} />
-        <main>
-          <KnowingGodHeroSection />
-          <KeyTopicsSection />
-          <FirstStepSection onOpenForm={() => setIsFormOpen(true)} />
-          <KnowingGodGallerySection />
-        </main>
-        <Footer setIsCallbackFormOpen={setIsCallbackFormOpen} setIsPhoneChoiceOpen={setIsPhoneChoiceOpen} />
-      </div>
-    )
-  }
-
-  const content = pageContent[slug]
-
-  if (!content) {
-    notFound()
+  if (!validSlugs.includes(slug)) {
+    return <div>Сторінка не знайдена</div>
   }
 
   return (
     <div className="bg-white">
       <Header setIsCallbackFormOpen={setIsCallbackFormOpen} setIsPhoneChoiceOpen={setIsPhoneChoiceOpen} />
-      <main className="pt-32 pb-16 min-h-screen">
-        <div className="container mx-auto px-4">
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-800 mb-6">{content.title}</h1>
-          <p className="text-lg text-gray-600 max-w-4xl leading-relaxed">{content.text}</p>
-        </div>
+      <ApplicationForm isOpen={isFormOpen} onOpenChange={setIsFormOpen} />
+      <CallbackForm isOpen={isCallbackFormOpen} onOpenChange={setIsCallbackFormOpen} />
+      <PhoneCallChoiceDialog isOpen={isPhoneChoiceOpen} onOpenChange={setIsPhoneChoiceOpen} />
+      <main>
+        {slug === "freedom-from-addiction" && (
+          <>
+            <FreedomHeroSection />
+            <PathToFreedomSection onOpenForm={() => setIsFormOpen(true)} />
+            <ProgramIncludesSection />
+            <WeHelpOvercomeSection />
+            <FreedomBeforeAfterSection />
+            <LifeMomentsSection />
+          </>
+        )}
+        {slug === "spiritual-growth" && (
+          <>
+            <SpiritualGrowthHeroSection onOpenForm={() => setIsFormOpen(true)} />
+            <DeepenFaithSection onOpenForm={() => setIsFormOpen(true)} />
+            <StudyDirectionsSection />
+            <SpiritualGrowthGallerySection />
+          </>
+        )}
+        {slug === "knowing-god" && (
+          <>
+            <KnowingGodHeroSection />
+            <IntroToFaithSection onOpenForm={() => setIsFormOpen(true)} />
+            <WhatYouWillLearnSection />
+            <KnowingGodGallerySection />
+          </>
+        )}
+        {slug === "womens-center" && (
+          <>
+            <WomensCenterHeroSection />
+            <WomensCenterIntroSection onOpenForm={() => setIsFormOpen(true)} />
+            <WomensProgramSection />
+            <WomensCenterGallerySection />
+          </>
+        )}
       </main>
       <Footer setIsCallbackFormOpen={setIsCallbackFormOpen} setIsPhoneChoiceOpen={setIsPhoneChoiceOpen} />
     </div>
